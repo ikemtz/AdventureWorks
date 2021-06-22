@@ -2,4 +2,12 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/AdventureWorks/v16
+/.vs
+**/.vs
+**/obj
+**/bin
+**/*.dbmdl
+**/*.jfm
+**/*.pubxml
+**/*.pubxml.user
+**/ServiceDependencies

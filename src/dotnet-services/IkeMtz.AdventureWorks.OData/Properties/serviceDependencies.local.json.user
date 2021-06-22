@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "restored": true,
+      "restoreTime": "2021-06-22T04:47:34.5501117Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2021-06-22T04:51:15.9089315Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "fe757603-6d7e-4abb-825e-6d080dd12add"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "AdventureWorks-Demo"
+    }
+  }
+}
