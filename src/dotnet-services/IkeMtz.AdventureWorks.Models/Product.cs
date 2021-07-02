@@ -33,15 +33,13 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(5)]
     public string Size { get; set; }
     public decimal? Weight { get; set; }
-    public Guid? ProductCategoryID { get; set; }
-    public Guid? ProductModelID { get; set; }
+    public Guid? ProductCategoryId { get; set; }
+    public Guid? ProductModelId { get; set; }
     [Required]
     public DateTime SellStartDate { get; set; }
     public DateTime? SellEndDate { get; set; }
     public DateTime? DiscontinuedDate { get; set; }
     public byte[] ThumbNailPhoto { get; set; }
-    [MaxLength(50)]
-    public string ThumbnailPhotoFileName { get; set; }
     [Required]
     [MaxLength(50)]
     public string CreatedBy { get; set; }

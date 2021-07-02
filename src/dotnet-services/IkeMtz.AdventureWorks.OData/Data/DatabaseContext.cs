@@ -9,13 +9,13 @@ namespace IkeMtz.AdventureWorks.OData.Data
         : base(options)
     {
     }
-    public virtual DbSet<Address> Addresses { get; set; }
-    public virtual DbSet<Customer> Customers { get; set; }
-    public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
+    public virtual DbSet<Client> Clients { get; set; }
+    public virtual DbSet<ClientAddress> ClientAddresses { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductCategory> ProductCategories { get; set; }
     public virtual DbSet<ProductModel> ProductModels { get; set; }
     public virtual DbSet<SaleOrder> SaleOrders { get; set; }
+    public virtual DbSet<SaleOrderAddress> SaleOrderAddresses { get; set; }
     public virtual DbSet<SaleOrderDetail> SaleOrderDetails { get; set; }
   }
 }

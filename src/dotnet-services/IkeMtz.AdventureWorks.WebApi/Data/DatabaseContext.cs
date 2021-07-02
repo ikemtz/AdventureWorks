@@ -11,9 +11,9 @@ namespace IkeMtz.AdventureWorks.WebApi.Data
         : base(options, httpContextAccessor)
     {
     }
-    public virtual DbSet<Address> Addresses { get; set; }
-    public virtual DbSet<Customer> Customers { get; set; }
-    public virtual DbSet<CustomerAddress> CustomerAddresses { get; set; }
+    public virtual DbSet<SaleOrderAddress> SaleOrderAddresses { get; set; }
+    public virtual DbSet<Client> Customers { get; set; }
+    public virtual DbSet<ClientAddress> CustomerAddresses { get; set; }
     public virtual DbSet<Product> Products { get; set; }
     public virtual DbSet<ProductCategory> ProductCategories { get; set; }
     public virtual DbSet<ProductModel> ProductModels { get; set; }

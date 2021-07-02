@@ -10,9 +10,9 @@
     [Num]                    AS                 (isnull(N'SO'+CONVERT([nvarchar](23),[SalesOrderId],(0)),N'*** ERROR ***')),
     [PurchaseOrderNum]       VARCHAR (25)       NULL,
     [AccountNum]             VARCHAR (15)       NULL,
-    [CustomerID]             UNIQUEIDENTIFIER   NOT NULL,
-    [ShipToAddressID]        UNIQUEIDENTIFIER   NULL,
-    [BillToAddressID]        UNIQUEIDENTIFIER   NULL,
+    [CustomerId]             UNIQUEIDENTIFIER   NOT NULL,
+    [ShipToAddressId]        UNIQUEIDENTIFIER   NULL,
+    [BillToAddressId]        UNIQUEIDENTIFIER   NULL,
     [ShipMethod]             NVARCHAR (50)      NOT NULL,
     [CreditCardApprovalCode] VARCHAR (15)       NULL,
     [SubTotal]               MONEY              CONSTRAINT [DF_SalesOrders_SubTotal] DEFAULT ((0.00)) NOT NULL,
@@ -31,9 +31,11 @@
     CONSTRAINT [CK_SalesOrders_Status] CHECK ([Status]>=(0) AND [Status]<=(8)),
     CONSTRAINT [CK_SalesOrders_SubTotal] CHECK ([SubTotal]>=(0.00)),
     CONSTRAINT [CK_SalesOrders_TaxAmt] CHECK ([TaxAmt]>=(0.00)),
-    CONSTRAINT [FK_SalesOrders_Address_BillTo] FOREIGN KEY ([BillToAddressID]) REFERENCES [dbo].[Addresses] ([Id]),
-    CONSTRAINT [FK_SalesOrders_Address_ShipTo] FOREIGN KEY ([ShipToAddressID]) REFERENCES [dbo].[Addresses] ([Id]),
-    CONSTRAINT [FK_SalesOrders_Customer] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[Customers] ([Id]),
+    CONSTRAINT [FK_SalesOrders_Clients] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Clients] ([Id]),
+    CONSTRAINT [FK_SalesOrdersAddresses_BillTo] FOREIGN KEY ([BillToAddressId]) REFERENCES [dbo].[SaleOrderAddresses] ([Id]),
+    CONSTRAINT [FK_SalesOrdersAddresses_ShipTo] FOREIGN KEY ([ShipToAddressId]) REFERENCES [dbo].[SaleOrderAddresses] ([Id]),
     CONSTRAINT [UIX_SalesOrders] UNIQUE NONCLUSTERED ([Num] ASC)
 );
+
+
 

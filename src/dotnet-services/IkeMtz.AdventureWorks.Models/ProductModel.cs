@@ -21,6 +21,8 @@ namespace IkeMtz.AdventureWorks.Models
     [Required]
     [MaxLength(50)]
     public string Name { get; set; }
+    [MaxLength(400)]
+    public string Description { get; set; }
     [Required]
     [MaxLength(50)]
     public string CreatedBy { get; set; }

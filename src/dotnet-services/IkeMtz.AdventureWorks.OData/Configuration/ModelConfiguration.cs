@@ -8,9 +8,9 @@ namespace IkeMtz.AdventureWorks.OData.Configuration
   {
     public void Apply(ODataModelBuilder builder, ApiVersion apiVersion, string routePrefix)
     {
-      _ = builder.EntitySet<Address>($"{nameof(Address)}es");
-      _ = builder.EntitySet<Customer>($"{nameof(Customer)}s");
-      _ = builder.EntitySet<CustomerAddress>($"{nameof(CustomerAddress)}es");
+      _ = builder.EntitySet<Client>($"{nameof(Client)}s");
+      _ = builder.EntitySet<ClientAddress>($"{nameof(ClientAddress)}es");
+      _ = builder.EntitySet<SaleOrderAddress>($"{nameof(SaleOrderAddress)}es");
       _ = builder.EntitySet<Product>($"{nameof(Product)}s");
       _ = builder.EntitySet<ProductCategory>($"{nameof(Product)}Categories");
       _ = builder.EntitySet<ProductModel>($"{nameof(ProductModel)}s");

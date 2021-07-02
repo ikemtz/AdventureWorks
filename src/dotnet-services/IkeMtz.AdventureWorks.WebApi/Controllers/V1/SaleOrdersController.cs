@@ -13,20 +13,20 @@ namespace IkeMtz.AdventureWorks.WebApi.Controllers.V1
   [Route("api/v{version:apiVersion}/[controller].{format}"), FormatFilter]
   [ApiVersion(VersionDefinitions.v1_0)]
   [ApiController]
-  public class AddressesController : ControllerBase
+  public class SaleOrdersController : ControllerBase
   {
     private readonly DatabaseContext _databaseContext;
-    public AddressesController(DatabaseContext databaseContext)
+    public SaleOrdersController(DatabaseContext databaseContext)
     {
       _databaseContext = databaseContext;
     }
 
     // Get api/Items
     [HttpGet]
-    [ProducesResponseType(Status200OK, Type = typeof(Address))]
+    [ProducesResponseType(Status200OK, Type = typeof(SaleOrder))]
     public async Task<ActionResult> Get([FromQuery] Guid id)
     {
-      var obj = await _databaseContext.Addresses
+      var obj = await _databaseContext.SaleOrders
         .AsNoTracking()
         .FirstOrDefaultAsync(t => t.Id == id)
         .ConfigureAwait(false);
@@ -35,11 +35,11 @@ namespace IkeMtz.AdventureWorks.WebApi.Controllers.V1
 
     // Post api/Items
     [HttpPost]
-    [ProducesResponseType(Status200OK, Type = typeof(Address))]
+    [ProducesResponseType(Status200OK, Type = typeof(SaleOrder))]
     [ValidateModel]
-    public async Task<ActionResult> Post([FromBody] Address value)
+    public async Task<ActionResult> Post([FromBody] SaleOrder value)
     {
-      var dbContextObject = _databaseContext.Addresses.Add(value);
+      var dbContextObject = _databaseContext.SaleOrders.Add(value);
       _ = await _databaseContext.SaveChangesAsync()
           .ConfigureAwait(false);
       return Ok(dbContextObject.Entity);
@@ -47,13 +47,13 @@ namespace IkeMtz.AdventureWorks.WebApi.Controllers.V1
 
     // Put api/Items
     [HttpPut]
-    [ProducesResponseType(Status200OK, Type = typeof(Address))]
+    [ProducesResponseType(Status200OK, Type = typeof(SaleOrder))]
     [ValidateModel]
-    public async Task<ActionResult> Put([FromQuery] Guid id, [FromBody] Address value)
+    public async Task<ActionResult> Put([FromQuery] Guid id, [FromBody] SaleOrder value)
     {
-      var obj = await _databaseContext.Addresses.FirstOrDefaultAsync(t => t.Id == id)
+      var obj = await _databaseContext.SaleOrders.FirstOrDefaultAsync(t => t.Id == id)
         .ConfigureAwait(false);
-      SimpleMapper<Address>.Instance.ApplyChanges(value, obj);
+      SimpleMapper<SaleOrder>.Instance.ApplyChanges(value, obj);
       _ = await _databaseContext.SaveChangesAsync()
           .ConfigureAwait(false);
       return Ok(obj);
@@ -61,10 +61,10 @@ namespace IkeMtz.AdventureWorks.WebApi.Controllers.V1
 
     // Put api/Items
     [HttpDelete]
-    [ProducesResponseType(Status200OK, Type = typeof(Address))]
+    [ProducesResponseType(Status200OK, Type = typeof(SaleOrder))]
     public async Task<ActionResult> Delete([FromQuery] Guid id)
     {
-      var obj = await _databaseContext.Addresses.FirstOrDefaultAsync(t => t.Id == id)
+      var obj = await _databaseContext.SaleOrders.FirstOrDefaultAsync(t => t.Id == id)
         .ConfigureAwait(false);
       _ = _databaseContext.Remove(obj);
       _ = await _databaseContext.SaveChangesAsync()

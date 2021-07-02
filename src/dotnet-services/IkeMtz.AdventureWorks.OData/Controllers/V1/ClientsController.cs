@@ -15,24 +15,24 @@ namespace IkeMtz.AdventureWorks.OData.Controllers.V1
 {
   [ApiVersion(VersionDefinitions.v1_0)]
   [Authorize]
-  [ODataRoutePrefix("Customers")]
+  [ODataRoutePrefix("Clients")]
   [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 6000)]
-  public class CustomersController : ODataController
+  public class ClientsController : ODataController
   {
     private readonly DatabaseContext _databaseContext;
 
-    public CustomersController(DatabaseContext databaseContext)
+    public ClientsController(DatabaseContext databaseContext)
     {
       _databaseContext = databaseContext;
     }
 
     [ODataRoute]
     [Produces("application/json")]
-    [ProducesResponseType(typeof(ODataEnvelope<Customer, Guid>), Status200OK)]
+    [ProducesResponseType(typeof(ODataEnvelope<Client, Guid>), Status200OK)]
     [EnableQuery(MaxTop = 100, AllowedQueryOptions = All)]
-    public IEnumerable<Customer> Get()
+    public IEnumerable<Client> Get()
     {
-      return _databaseContext.Customers
+      return _databaseContext.Clients
         .AsNoTracking();
     }
   }

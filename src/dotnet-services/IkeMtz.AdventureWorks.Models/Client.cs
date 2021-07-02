@@ -8,31 +8,20 @@ namespace IkeMtz.AdventureWorks.Models
   // Script is available at:
   // https://raw.githubusercontent.com/ikemtz/NRSRx/master/tools/sql-poco-class-generator.sql
 
-  public partial class Customer
+  public partial class Client
   : IkeMtz.NRSRx.Core.Models.IIdentifiable, IkeMtz.NRSRx.Core.Models.IAuditable
   {
-    public Customer()
+    public Client()
     {
-      CustomerAddresses = new HashSet<CustomerAddress>();
+      ClientAddresses = new HashSet<ClientAddress>();
       SaleOrders = new HashSet<SaleOrder>();
     }
 
     [Required]
     public Guid Id { get; set; }
+    [MaxLength(512)]
+    public string Name { get; set; }
     [Required]
-    public bool NameStyle { get; set; }
-    [MaxLength(8)]
-    public string Title { get; set; }
-    [Required]
-    [MaxLength(50)]
-    public string FirstName { get; set; }
-    [MaxLength(50)]
-    public string MiddleName { get; set; }
-    [Required]
-    [MaxLength(50)]
-    public string LastName { get; set; }
-    [MaxLength(10)]
-    public string Suffix { get; set; }
     [MaxLength(128)]
     public string CompanyName { get; set; }
     [MaxLength(256)]
@@ -49,9 +38,7 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(50)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
-    public virtual ICollection<CustomerAddress> CustomerAddresses { get; }
+    public virtual ICollection<ClientAddress> ClientAddresses { get; }
     public virtual ICollection<SaleOrder> SaleOrders { get; }
   }
-   
-
 }

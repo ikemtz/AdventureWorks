@@ -39,9 +39,9 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(15)]
     public string AccountNum { get; set; }
     [Required]
-    public Guid CustomerID { get; set; }
-    public Guid? ShipToAddressID { get; set; }
-    public Guid? BillToAddressID { get; set; }
+    public Guid CustomerId { get; set; }
+    public Guid? ShipToAddressId { get; set; }
+    public Guid? BillToAddressId { get; set; }
     [Required]
     [MaxLength(50)]
     public string ShipMethod { get; set; }
@@ -65,9 +65,9 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(50)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
-    public virtual Address ShipToAddress { get; set; }
-    public virtual Address BillToAddress { get; set; }
-    public virtual Customer Customer { get; set; }
+    public virtual SaleOrderAddress ShipToAddress { get; set; }
+    public virtual SaleOrderAddress BillToAddress { get; set; }
+    public virtual Client Client { get; set; }
     public virtual ICollection<SaleOrderDetail> SaleOrderDetails { get; }
   }
 }

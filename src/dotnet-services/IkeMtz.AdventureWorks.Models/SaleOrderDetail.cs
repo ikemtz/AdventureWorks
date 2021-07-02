@@ -32,7 +32,7 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(50)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
-    public virtual SaleOrder SaleOrder { get; set; }
     public virtual Product Product { get; set; }
+    public virtual SaleOrder SaleOrder { get; set; }
   }
 }
