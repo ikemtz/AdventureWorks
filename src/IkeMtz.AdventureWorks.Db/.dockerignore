@@ -1,0 +1,6 @@
+*.jfm
+**/*.sql
+*.sqlproj
+*.user
+/obj
+/dbo
