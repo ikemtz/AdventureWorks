@@ -5,6 +5,7 @@
     <AssemblyName>IkeMtz.AdventureWorks.WebApi</AssemblyName>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -12,7 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <NoWarn>1701;1702;CA1707</NoWarn>
+    <NoWarn>1701;1702;CA1707;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,8 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="IkeMtz.NRSRx.Core.EntityFramework" Version="6.0.87.4" />
-    <PackageReference Include="IkeMtz.NRSRx.Core.WebApi" Version="6.0.87.4" />
+    <PackageReference Include="IkeMtz.NRSRx.Core.EntityFramework" Version="6.0.95.2" />
+    <PackageReference Include="IkeMtz.NRSRx.Core.WebApi" Version="6.0.95.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.0" />
   </ItemGroup>

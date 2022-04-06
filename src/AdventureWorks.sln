@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IkeMtz.AdventureWorks.Db", "IkeMtz.AdventureWorks.Db\IkeMtz.AdventureWorks.Db.sqlproj", "{BA067997-886E-42D0-81B2-8591C6C57800}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IkeMtz.AdventureWorks.OData.Tests", "IkeMtz.AdventureWorks.OData.Tests\IkeMtz.AdventureWorks.OData.Tests.csproj", "{41B435DB-E189-4A78-B6F4-452E129BB000}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IkeMtz.AdventureWorks.WebApi.Tests", "IkeMtz.AdventureWorks.WebApi.Tests\IkeMtz.AdventureWorks.WebApi.Tests.csproj", "{786D0B49-AF3D-473E-9B26-ED364AF57EA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{BA067997-886E-42D0-81B2-8591C6C57800}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA067997-886E-42D0-81B2-8591C6C57800}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BA067997-886E-42D0-81B2-8591C6C57800}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{41B435DB-E189-4A78-B6F4-452E129BB000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B435DB-E189-4A78-B6F4-452E129BB000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B435DB-E189-4A78-B6F4-452E129BB000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B435DB-E189-4A78-B6F4-452E129BB000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786D0B49-AF3D-473E-9B26-ED364AF57EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786D0B49-AF3D-473E-9B26-ED364AF57EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786D0B49-AF3D-473E-9B26-ED364AF57EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786D0B49-AF3D-473E-9B26-ED364AF57EA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

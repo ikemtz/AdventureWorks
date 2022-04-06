@@ -15,11 +15,11 @@ namespace IkeMtz.AdventureWorks.OData.Controllers.V1
   [ApiVersion(VersionDefinitions.v1_0)]
   [Authorize]
   [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 6000)]
-  public class SaleOrderDetailsController : ODataController
+  public class SaleOrderLineItemsController : ODataController
   {
     private readonly DatabaseContext _databaseContext;
 
-    public SaleOrderDetailsController(DatabaseContext databaseContext)
+    public SaleOrderLineItemsController(DatabaseContext databaseContext)
     {
       _databaseContext = databaseContext;
     }
@@ -29,7 +29,7 @@ namespace IkeMtz.AdventureWorks.OData.Controllers.V1
     [EnableQuery(MaxTop = 100, AllowedQueryOptions = AllowedQueryOptions.All)]
     public IEnumerable<OrderLineItem> Get()
     {
-      return _databaseContext.OrderDetails
+      return _databaseContext.OrderLineItems
         .AsNoTracking();
     }
   }

@@ -12,6 +12,6 @@ namespace IkeMtz.AdventureWorks.Data
     public virtual DbSet<ProductModel> ProductModels { get; set; }
     public virtual DbSet<Order> Orders { get; set; }
     public virtual DbSet<OrderAddress> OrderAddresses { get; set; }
-    public virtual DbSet<OrderLineItem> OrderDetails { get; set; }
+    public virtual DbSet<OrderLineItem> OrderLineItems { get; set; }
   }
 }

@@ -12,13 +12,13 @@ namespace IkeMtz.AdventureWorks.OData.Configuration
       ODataEntityModelFactory(builder =>
       {
         _ = builder.EntitySet<Client>($"{nameof(Client)}s");
-      _ = builder.EntitySet<ClientAddress>($"{nameof(ClientAddress)}es");
-      _ = builder.EntitySet<OrderAddress>($"{nameof(OrderAddress)}es");
-      _ = builder.EntitySet<Product>($"{nameof(Product)}s");
-      _ = builder.EntitySet<ProductCategory>($"{nameof(Product)}Categories");
-      _ = builder.EntitySet<ProductModel>($"{nameof(ProductModel)}s");
-      _ = builder.EntitySet<Order>($"{nameof(Order)}s");
-      _ = builder.EntitySet<OrderLineItem>($"{nameof(OrderLineItem)}s");
+        _ = builder.EntitySet<ClientAddress>($"{nameof(ClientAddress)}es");
+        _ = builder.EntitySet<OrderAddress>($"{nameof(OrderAddress)}es");
+        _ = builder.EntitySet<Product>($"{nameof(Product)}s");
+        _ = builder.EntitySet<ProductCategory>($"{nameof(Product)}Categories");
+        _ = builder.EntitySet<ProductModel>($"{nameof(ProductModel)}s");
+        _ = builder.EntitySet<Order>($"{nameof(Order)}s");
+        _ = builder.EntitySet<OrderLineItem>($"{nameof(OrderLineItem)}s");
       });
 
     public override IDictionary<ApiVersionDescription, IEdmModel> GetModels() =>

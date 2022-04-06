@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using IkeMtz.NRSRx.Core.Models.Validation;
 
 namespace IkeMtz.AdventureWorks.Models
 {
@@ -18,6 +17,7 @@ namespace IkeMtz.AdventureWorks.Models
     }
 
     [Required]
+    [Key]
     public Guid Id { get; set; }
     [Required]
     public int OrderId { get; set; }
@@ -40,7 +40,7 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(15)]
     public string AccountNum { get; set; }
     [Required]
-    public Guid CustomerId { get; set; }
+    public Guid ClientId { get; set; }
     public Guid? ShipToAddressId { get; set; }
     public Guid? BillToAddressId { get; set; }
     [Required]
@@ -66,7 +66,6 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(320)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
-    public virtual OrderAddress OrderAddresse { get; set; }
     public virtual Client Client { get; set; }
     public virtual OrderAddress OrderAddress { get; set; }
     public virtual ICollection<OrderLineItem> OrderLineItems { get; }

@@ -11,7 +11,7 @@ namespace IkeMtz.AdventureWorks.WebApi
 {
   public class Startup : CoreWebApiStartup
   {
-    public override string MicroServiceTitle => $"{nameof(IkeMtz.AdventureWorks.WebApi)} WebApi Microservice";
+    public override string MicroServiceTitle => $"{nameof(AdventureWorks)} WebApi Microservice";
     public override Assembly StartupAssembly => typeof(Startup).Assembly;
     public override bool IncludeXmlCommentsInSwaggerDocs => true;
     public override string[] AdditionalAssemblyXmlDocumentFiles => new[] {
