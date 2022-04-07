@@ -19,7 +19,7 @@ jobs:
   - task: VSBuild@1
     displayName: 'Build soultion AdventureWorksDb.sln'
     inputs:
-      solution: AdventureWorksDb.sln
+      solution: src/AdventureWorksDb.sln
 
   - task: PowerShell@2
     displayName: 'Artifact SQL Dacpacs'
@@ -96,7 +96,7 @@ jobs:
     inputs:
       command: test
       projects: '$(TEST_PROJECTS)'
-      arguments: '--configuration $(BuildConfiguration) --collect "Code coverage" --no-build --no-restore --settings $(Build.SourcesDirectory)/test.RunSettings --filter TestCategory!~Integration'
+      arguments: '--configuration $(BuildConfiguration) --collect "Code coverage" --no-build --no-restore --settings $(Build.SourcesDirectory)/src/test.RunSettings --filter TestCategory!~Integration'
 
   - task: DotNetCoreCLI@2
     displayName: 'Test - Sonar'
@@ -104,7 +104,7 @@ jobs:
       command: custom
       projects: '$(TEST_PROJECTS)'
       custom: 'test'
-      arguments: '--logger trx --configuration $(BuildConfiguration) --collect "Code coverage" --results-directory $(Common.TestResultsDirectory) --no-build --no-restore --settings $(Build.SourcesDirectory)/test.RunSettings --filter TestCategory!~Integration'
+      arguments: '--logger trx --configuration $(BuildConfiguration) --collect "Code coverage" --results-directory $(Common.TestResultsDirectory) --no-build --no-restore --settings $(Build.SourcesDirectory)/src/test.RunSettings --filter TestCategory!~Integration'
 
   - task: SonarCloudAnalyze@1
     displayName: 'Run Code Analysis'
