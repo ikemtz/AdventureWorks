@@ -25,7 +25,7 @@ jobs:
     displayName: 'Artifact SQL Dacpacs'
     inputs:
       targetType: filePath
-      filePath: 'IkeMtz.AdventureWorks.Db/artifact-dacpacs.ps1'
+      filePath: 'src/IkeMtz.AdventureWorks.Db/artifact-dacpacs.ps1'
       arguments: '-artifactFolder $(build.artifactstagingdirectory)'
 
   - task: PublishBuildArtifacts@1
