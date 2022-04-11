@@ -16,8 +16,7 @@ namespace IkeMtz.AdventureWorks.OData.Tests.Unigration
   public partial class OrdersTests : BaseUnigrationTests
   {
     [TestMethod]
-    [TestCategory("Integration")]
-    [TestCategory("SqlIntegration")]
+    [TestCategory("Unigration")] 
     public async Task GetOrdersTest()
     {
       var objA = Factories.OrderFactory();

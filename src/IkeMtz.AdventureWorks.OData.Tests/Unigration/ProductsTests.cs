@@ -14,8 +14,7 @@ namespace IkeMtz.AdventureWorks.OData.Tests.Unigration
   public partial class ProductsTests : BaseUnigrationTests
   {
     [TestMethod]
-    [TestCategory("Integration")]
-    [TestCategory("SqlIntegration")]
+    [TestCategory("Unigration")]
     public async Task GetProductsTest()
     {
       using var srv = new TestServer(TestHostBuilder<Startup, UnigrationODataTestStartup>());

@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using IkeMtz.AdventureWorks.Models;
+using IkeMtz.AdventureWorks.Tests;
 using IkeMtz.NRSRx.Core.Models;
 using IkeMtz.NRSRx.Core.Unigration;
 using Microsoft.AspNetCore.TestHost;
@@ -14,8 +15,7 @@ namespace IkeMtz.AdventureWorks.OData.Tests.Unigration
   public partial class CustomerAddressesTests : BaseUnigrationTests
   {
     [TestMethod]
-    [TestCategory("Integration")]
-    [TestCategory("SqlIntegration")]
+    [TestCategory("Unigration")]
     public async Task GetCustomerAddressesTest()
     {
       using var srv = new TestServer(TestHostBuilder<Startup, UnigrationODataTestStartup>());
