@@ -14,7 +14,8 @@ namespace IkeMtz.AdventureWorks.OData.Tests.Integration
   public partial class OrderLineItemsTests : BaseUnigrationTests
   {
     [TestMethod]
-    [TestCategory("Unigration")] 
+    [TestCategory("Integration")]
+    [TestCategory("SqlIntegration")]
     public async Task GetOrderLineItemsTest()
     { 
       using var srv = new TestServer(TestHostBuilder<Startup, IntegrationODataTestStartup>());
