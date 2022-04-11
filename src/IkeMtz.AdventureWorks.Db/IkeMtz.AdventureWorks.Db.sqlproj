@@ -67,7 +67,7 @@
     <Build Include="dbo\Tables\Products.sql" />
     <Build Include="dbo\Tables\ProductModels.sql" />
     <Build Include="dbo\Tables\ProductCategories.sql" />
-    <None Include="dbo\Data\dbo.ClientAddresses.Table.sql">
+    <None Include="dbo\Data\dbo.CustomerAddresses.Table.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="dbo\Data\dbo.ProductCategories.Table.sql">
@@ -86,9 +86,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <Build Include="dbo\Tables\OrderAddresses.sql" />
-    <Build Include="dbo\Tables\Clients.sql" />
-    <Build Include="dbo\Tables\ClientAddresses.sql" />
-    <None Include="dbo\Data\dbo.Clients.Table.sql">
+    <Build Include="dbo\Tables\Customers.sql" />
+    <Build Include="dbo\Tables\CustomerAddresses.sql" />
+    <None Include="dbo\Data\dbo.Customers.Table.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="dbo\Data\dbo.OrderAddresses.Table.sql">

@@ -36,7 +36,7 @@ namespace IkeMtz.AdventureWorks.WebApi.Tests.Unigration
         ));
       var doc = await SwaggerUnitTests.TestJsonDocAsync(srv);
       _ = await SwaggerUnitTests.TestReverseProxyJsonDocAsync(srv, "/my-api");
-      Assert.IsTrue(doc.Components.Schemas.ContainsKey(nameof(Client)));
+      Assert.IsTrue(doc.Components.Schemas.ContainsKey(nameof(Customer)));
       Assert.AreEqual($"{nameof(AdventureWorks)} WebApi Microservice", doc.Info.Title);
     }
   }

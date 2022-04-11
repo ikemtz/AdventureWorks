@@ -9,9 +9,9 @@
     <DocumentationFile>./IkeMtz.AdventureWorks.OData.Tests.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IkeMtz.NRSRx.Core.Unigration" Version="6.0.95.2" />
+    <PackageReference Include="IkeMtz.NRSRx.Core.Unigration" Version="6.0.101.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.9" />
     <PackageReference Include="coverlet.collector" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

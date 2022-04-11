@@ -15,21 +15,21 @@ namespace IkeMtz.AdventureWorks.OData.Controllers.V1
   [ApiVersion(VersionDefinitions.v1_0)]
   [Authorize]
   [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 6000)]
-  public class SaleOrdersController : ODataController
+  public class CustomerAddressesController : ODataController
   {
     private readonly DatabaseContext _databaseContext;
 
-    public SaleOrdersController(DatabaseContext databaseContext)
+    public CustomerAddressesController(DatabaseContext databaseContext)
     {
       _databaseContext = databaseContext;
     }
 
     [Produces("application/json")]
-    [ProducesResponseType(typeof(ODataEnvelope<Order, Guid>), Status200OK)]
+    [ProducesResponseType(typeof(ODataEnvelope<CustomerAddress, Guid>), Status200OK)]
     [EnableQuery(MaxTop = 100, AllowedQueryOptions = AllowedQueryOptions.All)]
-    public IEnumerable<Order> Get()
+    public IEnumerable<CustomerAddress> Get()
     {
-      return _databaseContext.Orders
+      return _databaseContext.CustomerAddresses
         .AsNoTracking();
     }
   }

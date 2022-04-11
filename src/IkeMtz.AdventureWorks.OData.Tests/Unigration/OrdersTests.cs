@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using IkeMtz.AdventureWorks.Data;
 using IkeMtz.AdventureWorks.Models;
@@ -12,31 +13,36 @@ using Newtonsoft.Json;
 namespace IkeMtz.AdventureWorks.OData.Tests.Unigration
 {
   [TestClass]
-  public partial class ClientsTest : BaseUnigrationTests
+  public partial class OrdersTests : BaseUnigrationTests
   {
     [TestMethod]
-    [TestCategory("Unigration")]
-    public async Task GetClientsTest()
+    [TestCategory("Integration")]
+    [TestCategory("SqlIntegration")]
+    public async Task GetOrdersTest()
     {
-      var objA = Factories.ClientFactory();
+      var objA = Factories.OrderFactory();
       using var srv = new TestServer(TestHostBuilder<Startup, UnigrationODataTestStartup>()
           .ConfigureTestServices(x =>
           {
             ExecuteOnContext<DatabaseContext>(x, db =>
             {
-              _ = db.Clients.Add(objA);
+              _ = db.Orders.Add(objA);
             });
           })
        );
       var client = srv.CreateClient();
       GenerateAuthHeader(client, GenerateTestToken());
 
-      var resp = await client.GetStringAsync($"odata/v1/{nameof(Client)}s?$count=true");
-
-      //Validate OData Result
+      var resp = await client.GetStringAsync($"odata/v1/{nameof(Order)}s?$count=true");
       TestContext.WriteLine($"Server Reponse: {resp}");
-      var envelope = JsonConvert.DeserializeObject<ODataEnvelope<Client>>(resp);
-      Assert.AreEqual(objA.Name, envelope.Value.First().Name);
+      var envelope = JsonConvert.DeserializeObject<ODataEnvelope<Order>>(resp);
+      Assert.AreEqual(envelope.Count, envelope.Value.Count());
+      envelope.Value.ToList().ForEach(t =>
+      {
+        Assert.IsNotNull(t.Num);
+        Assert.AreNotEqual(Guid.Empty, t.Id);
+      });
     }
+
   }
 }

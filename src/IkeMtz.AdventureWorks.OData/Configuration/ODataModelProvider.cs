@@ -11,8 +11,8 @@ namespace IkeMtz.AdventureWorks.OData.Configuration
     public static IEdmModel GetV1EdmModel() =>
       ODataEntityModelFactory(builder =>
       {
-        _ = builder.EntitySet<Client>($"{nameof(Client)}s");
-        _ = builder.EntitySet<ClientAddress>($"{nameof(ClientAddress)}es");
+        _ = builder.EntitySet<Customer>($"{nameof(Customer)}s");
+        _ = builder.EntitySet<CustomerAddress>($"{nameof(CustomerAddress)}es");
         _ = builder.EntitySet<OrderAddress>($"{nameof(OrderAddress)}es");
         _ = builder.EntitySet<Product>($"{nameof(Product)}s");
         _ = builder.EntitySet<ProductCategory>($"{nameof(Product)}Categories");

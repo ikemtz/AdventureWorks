@@ -7,6 +7,6 @@ namespace IkeMtz.AdventureWorks.Data
     public DatabaseContext(DbContextOptions<DatabaseContext> options)
         : base(options)
     {
-    }
+    } 
   }
 }
