@@ -8,9 +8,9 @@ namespace IkeMtz.AdventureWorks.Models
   {
     public OrderAddress()
     {
-      Orders = new HashSet<Order>();
+      BillToOrders = new HashSet<Order>();
+      ShipToOrders = new HashSet<Order>();
     }
-
     [Required]
     public Guid Id { get; set; }
     [Required]
@@ -38,7 +38,9 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(320)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
-    public virtual ICollection<Order> Orders { get; }
+
+    public virtual ICollection<Order> BillToOrders { get; set; }
+    public virtual ICollection<Order> ShipToOrders { get; set; }
   }
 
 }

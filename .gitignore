@@ -11,3 +11,4 @@
 **/*.pubxml
 **/*.pubxml.user
 **/ServiceDependencies
+/src/TestResults

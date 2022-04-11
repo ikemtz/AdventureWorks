@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Products] (
     [Id]                UNIQUEIDENTIFIER   NOT NULL,
     [Name]              NVARCHAR (50)      NOT NULL,
-    [ProductNumber]     NVARCHAR (25)      NOT NULL,
+    [Num]     NVARCHAR (25)      NOT NULL,
     [Color]             NVARCHAR (15)      NULL,
     [StandardCost]      MONEY              NOT NULL,
     [ListPrice]         MONEY              NOT NULL,
@@ -25,7 +25,7 @@
     CONSTRAINT [FK_Products_ProductCategories] FOREIGN KEY ([ProductCategoryId]) REFERENCES [dbo].[ProductCategories] ([Id]),
     CONSTRAINT [FK_Products_ProductModels] FOREIGN KEY ([ProductModelId]) REFERENCES [dbo].[ProductModels] ([Id]),
     CONSTRAINT [UIX_Products_Name] UNIQUE NONCLUSTERED ([Name] ASC),
-    CONSTRAINT [UIX_Products_ProductNumber] UNIQUE NONCLUSTERED ([ProductNumber] ASC)
+    CONSTRAINT [UIX_Products_ProductNumber] UNIQUE NONCLUSTERED ([Num] ASC)
 );
 
 

@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IkeMtz.NRSRx.Core.Models" Version="6.0.95.2" />
+    <PackageReference Include="IkeMtz.NRSRx.Core.Models" Version="6.0.101.1" />
   </ItemGroup>
 
 </Project>

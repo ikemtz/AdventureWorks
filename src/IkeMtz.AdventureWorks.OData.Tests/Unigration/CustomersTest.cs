@@ -12,30 +12,30 @@ using Newtonsoft.Json;
 namespace IkeMtz.AdventureWorks.OData.Tests.Unigration
 {
   [TestClass]
-  public partial class ClientsTest : BaseUnigrationTests
+  public partial class CustomersTest : BaseUnigrationTests
   {
     [TestMethod]
     [TestCategory("Unigration")]
-    public async Task GetClientsTest()
+    public async Task GetCustomersTest()
     {
-      var objA = Factories.ClientFactory();
+      var objA = Factories.CustomerFactory();
       using var srv = new TestServer(TestHostBuilder<Startup, UnigrationODataTestStartup>()
           .ConfigureTestServices(x =>
           {
             ExecuteOnContext<DatabaseContext>(x, db =>
             {
-              _ = db.Clients.Add(objA);
+              _ = db.Customers.Add(objA);
             });
           })
        );
       var client = srv.CreateClient();
       GenerateAuthHeader(client, GenerateTestToken());
 
-      var resp = await client.GetStringAsync($"odata/v1/{nameof(Client)}s?$count=true");
+      var resp = await client.GetStringAsync($"odata/v1/{nameof(Customer)}s?$count=true&$top=5&$expand={nameof(Order)}s,{nameof(CustomerAddress)}es");
 
       //Validate OData Result
       TestContext.WriteLine($"Server Reponse: {resp}");
-      var envelope = JsonConvert.DeserializeObject<ODataEnvelope<Client>>(resp);
+      var envelope = JsonConvert.DeserializeObject<ODataEnvelope<Customer>>(resp);
       Assert.AreEqual(objA.Name, envelope.Value.First().Name);
     }
   }

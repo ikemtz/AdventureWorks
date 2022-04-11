@@ -24,7 +24,7 @@ namespace IkeMtz.AdventureWorks.Models
     public string Name { get; set; }
     [Required]
     [MaxLength(25)]
-    public string ProductNumber { get; set; }
+    public string Num { get; set; }
     [MaxLength(15)]
     public string Color { get; set; }
     [Required]
@@ -51,7 +51,7 @@ namespace IkeMtz.AdventureWorks.Models
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
     public virtual ProductModel ProductModel { get; set; }
-    public virtual ProductCategory ProductCategorie { get; set; }
+    public virtual ProductCategory ProductCategory { get; set; }
     public virtual ICollection<OrderLineItem> OrderLineItems { get; }
   }
 }
