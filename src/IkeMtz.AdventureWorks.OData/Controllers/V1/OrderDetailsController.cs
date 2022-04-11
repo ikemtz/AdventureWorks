@@ -15,11 +15,11 @@ namespace IkeMtz.AdventureWorks.OData.Controllers.V1
   [ApiVersion(VersionDefinitions.v1_0)]
   [Authorize]
   [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 6000)]
-  public class SaleOrderLineItemsController : ODataController
+  public class OrderLineItemsController : ODataController
   {
     private readonly DatabaseContext _databaseContext;
 
-    public SaleOrderLineItemsController(DatabaseContext databaseContext)
+    public OrderLineItemsController(DatabaseContext databaseContext)
     {
       _databaseContext = databaseContext;
     }

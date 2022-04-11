@@ -24,7 +24,7 @@ namespace IkeMtz.AdventureWorks.Models
     public string Name { get; set; }
     [Required]
     [MaxLength(25)]
-    public string ProductNumber { get; set; }
+    public string Num { get; set; }
     [MaxLength(15)]
     public string Color { get; set; }
     [Required]

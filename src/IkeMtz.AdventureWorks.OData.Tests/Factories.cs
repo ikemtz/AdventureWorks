@@ -7,6 +7,11 @@ namespace IkeMtz.AdventureWorks.Tests
 {
   public static partial class Factories
   {
+    static readonly Random Random;
+    static Factories()
+    {
+      Random = new Random(DateTime.Now.Millisecond);
+    }
     public static Customer CustomerFactory()
     {
       var Customer = CreateIdentifiable(CreateAuditable<Customer>());
@@ -28,6 +33,36 @@ namespace IkeMtz.AdventureWorks.Tests
       order.Num = StringGenerator(7, characterSet: CharacterSets.UpperCase + CharacterSets.Numeric);
       order.Status = 1;
       return order;
+    }
+
+    public static OrderLineItem OrderLineItemFactory(Order order = null, Product product = null)
+    {
+      var lineItem = CreateIdentifiable(CreateAuditable<OrderLineItem>());
+      lineItem.Order = order ?? OrderFactory();
+
+      lineItem.OrderQty = Convert.ToInt16(Random.Next(1, 20));
+      lineItem.UnitPrice = Random.Next(2, 1000);
+      lineItem.Product = product ?? ProductFactory();
+      return lineItem;
+    }
+
+    private static Product ProductFactory()
+    {
+      var product = CreateIdentifiable(CreateAuditable<Product>());
+      product.Name = StringGenerator(20, characterSet: CharacterSets.UpperCase + CharacterSets.LowerCase);
+      product.Num = StringGenerator(20);
+      return product;
+    }
+
+    public static OrderAddress OrderAddressFactory()
+    {
+      var orderAddress = CreateIdentifiable(CreateAuditable<OrderAddress>());
+      orderAddress.Line1 = StringGenerator(20, characterSet: CharacterSets.UpperCase + CharacterSets.LowerCase + CharacterSets.Numeric);
+      orderAddress.City = StringGenerator(20);
+      orderAddress.StateProvince = StringGenerator(2, false, characterSet: CharacterSets.UpperCase);
+      orderAddress.CountryRegion = StringGenerator(3, characterSet: CharacterSets.UpperCase);
+      orderAddress.PostalCode = StringGenerator(5, characterSet: CharacterSets.Numeric);
+      return orderAddress;
     }
   }
 }
