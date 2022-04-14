@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using IkeMtz.NRSRx.Core.Models.Validation;
 
 namespace IkeMtz.AdventureWorks.Models
@@ -20,10 +21,13 @@ namespace IkeMtz.AdventureWorks.Models
     [Required]
     public Guid ProductId { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal UnitPrice { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal UnitPriceDiscount { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal LineTotal { get; set; }
     [Required]
     [MaxLength(320)]
