@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IkeMtz.AdventureWorks.Models
 {
@@ -28,11 +29,14 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(15)]
     public string Color { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal StandardCost { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal ListPrice { get; set; }
     [MaxLength(5)]
     public string Size { get; set; }
+    [Column(TypeName = "decimal(18,4)")]
     public decimal? Weight { get; set; }
     public Guid? ProductCategoryId { get; set; }
     public Guid? ProductModelId { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace IkeMtz.AdventureWorks.Models
 {
@@ -47,12 +48,16 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(15)]
     public string CreditCardApprovalCode { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal SubTotal { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal TaxAmt { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal Freight { get; set; }
     [Required]
+    [Column(TypeName = "decimal(18,4)")]
     public decimal TotalDue { get; set; }
     [MaxLength(500)]
     public string Comment { get; set; }
