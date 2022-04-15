@@ -23,11 +23,10 @@ namespace IkeMtz.AdventureWorks.Tests
       return Customer;
     }
 
-    public static Order OrderFactory(Customer Customer = null)
+    public static Order OrderFactory(Customer customer = null)
     {
       var order = CreateIdentifiable(CreateAuditable<Order>());
-      order.Customer = Customer ?? CustomerFactory();
-      order.Customer.Orders.Add(order);
+      order.Customer = customer ?? CustomerFactory();
       order.ShipMethod = "CARGO TRANSPORT 5";
       order.PurchaseOrderNum = StringGenerator(20);
       order.Num = StringGenerator(7, characterSet: CharacterSets.UpperCase + CharacterSets.Numeric);
@@ -37,16 +36,24 @@ namespace IkeMtz.AdventureWorks.Tests
 
     public static OrderLineItem OrderLineItemFactory(Order order = null, Product product = null)
     {
+      if (order == null)
+      {
+        order = Factories.OrderFactory();
+      }
       var lineItem = CreateIdentifiable(CreateAuditable<OrderLineItem>());
-      lineItem.Order = order ?? OrderFactory();
 
       lineItem.OrderQty = Convert.ToInt16(Random.Next(1, 20));
       lineItem.UnitPrice = Random.Next(2, 1000);
       lineItem.Product = product ?? ProductFactory();
+     
+      if (!order.OrderLineItems.Contains(lineItem))
+      {
+        order.OrderLineItems.Add(lineItem);
+      }
       return lineItem;
     }
 
-    private static Product ProductFactory()
+    public static Product ProductFactory()
     {
       var product = CreateIdentifiable(CreateAuditable<Product>());
       product.Name = StringGenerator(20, characterSet: CharacterSets.UpperCase + CharacterSets.LowerCase);

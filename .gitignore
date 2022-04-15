@@ -12,3 +12,4 @@
 **/*.pubxml.user
 **/ServiceDependencies
 /src/TestResults
+/src/IkeMtz.AdventureWorks.Db/IkeMtz.AdventureWorks.Db.publish.xml
