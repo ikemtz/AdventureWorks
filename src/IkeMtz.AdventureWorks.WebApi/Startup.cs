@@ -23,7 +23,7 @@ namespace IkeMtz.AdventureWorks.WebApi
     public override void SetupDatabase(IServiceCollection services, string dbConnectionString)
     {
       _ = services
-      .AddDbContext<DatabaseContext>(x => x.UseSqlServer(dbConnectionString))
+      .AddDbContext<DatabaseContext>(x => x.UseSqlServer(dbConnectionString, options => options.EnableRetryOnFailure()))
       .AddEntityFrameworkSqlServer();
     }
   }
