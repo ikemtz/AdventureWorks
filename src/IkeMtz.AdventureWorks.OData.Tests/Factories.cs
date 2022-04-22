@@ -36,16 +36,13 @@ namespace IkeMtz.AdventureWorks.Tests
 
     public static OrderLineItem OrderLineItemFactory(Order order = null, Product product = null)
     {
-      if (order == null)
-      {
-        order = Factories.OrderFactory();
-      }
+      order ??= OrderFactory(); 
       var lineItem = CreateIdentifiable(CreateAuditable<OrderLineItem>());
 
       lineItem.OrderQty = Convert.ToInt16(Random.Next(1, 20));
       lineItem.UnitPrice = Random.Next(2, 1000);
       lineItem.Product = product ?? ProductFactory();
-     
+
       if (!order.OrderLineItems.Contains(lineItem))
       {
         order.OrderLineItems.Add(lineItem);

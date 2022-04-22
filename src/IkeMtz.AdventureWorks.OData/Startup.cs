@@ -29,7 +29,7 @@ namespace IkeMtz.AdventureWorks.OData
     public override void SetupDatabase(IServiceCollection services, string dbConnectionString)
     {
       _ = services
-       .AddDbContextPool<DatabaseContext>(x => x.UseSqlServer(dbConnectionString))
+       .AddDbContextPool<DatabaseContext>(x => x.UseSqlServer(dbConnectionString, options => options.EnableRetryOnFailure()))
        .AddEntityFrameworkSqlServer();
     }
   }

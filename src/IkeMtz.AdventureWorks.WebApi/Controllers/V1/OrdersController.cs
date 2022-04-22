@@ -66,10 +66,17 @@ namespace IkeMtz.AdventureWorks.WebApi.Controllers.V1
     {
       var obj = await _databaseContext.Orders.FirstOrDefaultAsync(t => t.Id == id)
         .ConfigureAwait(false);
-      _ = _databaseContext.Remove(obj);
-      _ = await _databaseContext.SaveChangesAsync()
-          .ConfigureAwait(false);
-      return Ok(obj);
+      if (obj == null)
+      {
+        return Conflict($"Order Id {id} is not found");
+      }
+      else
+      {
+        _ = _databaseContext.Remove(obj);
+        _ = await _databaseContext.SaveChangesAsync()
+            .ConfigureAwait(false);
+        return Ok(obj);
+      }
     }
   }
 }
