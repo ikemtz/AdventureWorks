@@ -19,6 +19,7 @@ namespace IkeMtz.AdventureWorks.Models
     [Required]
     public Guid Id { get; set; }
     [Required]
+    [MinLength(10)]
     [MaxLength(15)]
     public string Num { get; set; }  
     [MaxLength(512)]
