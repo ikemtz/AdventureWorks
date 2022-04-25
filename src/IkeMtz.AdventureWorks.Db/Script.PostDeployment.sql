@@ -9,6 +9,7 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+:r .\dbo\Data\dbo.SalesAgents.Table.sql
 :r .\dbo\Data\dbo.Customers.Table.sql
 :r .\dbo\Data\dbo.CustomerAddresses.Table.sql
 :r .\dbo\Data\dbo.ProductCategories.Table.sql

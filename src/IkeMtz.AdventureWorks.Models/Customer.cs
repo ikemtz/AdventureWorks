@@ -27,7 +27,8 @@ namespace IkeMtz.AdventureWorks.Models
     [Required]
     [MaxLength(128)]
     public string CompanyName { get; set; }
-    public string SalesPerson { get; set; }
+    [Required]
+    public int SalesAgentId { get; set; }
     [MaxLength(250)]
     public string EmailAddress { get; set; }
     [MaxLength(25)]
@@ -40,6 +41,7 @@ namespace IkeMtz.AdventureWorks.Models
     [MaxLength(320)]
     public string UpdatedBy { get; set; }
     public DateTimeOffset? UpdatedOnUtc { get; set; }
+    public virtual SalesAgent SalesAgent { get; set; }
     public virtual ICollection<CustomerAddress> CustomerAddresses { get; }
     public virtual ICollection<Order> Orders { get; }
   }
