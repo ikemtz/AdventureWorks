@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using IkeMtz.NRSRx.Core.Unigration; 
-using IkeMtz.AdventureWorks.Models; 
+using IkeMtz.NRSRx.Core.Unigration;
+using IkeMtz.AdventureWorks.Models;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -54,8 +54,7 @@ namespace IkeMtz.AdventureWorks.WebApi.Tests.Unigration
       var client = srv.CreateClient();
       GenerateAuthHeader(client, GenerateTestToken());
 
-      var updatedOrder = Factories.OrderFactory(originalOrder.Customer);
-      updatedOrder.Id = originalOrder.Id;
+      var updatedOrder = JsonClone(originalOrder);
       updatedOrder.Comment = TestDataFactory.StringGenerator(6);
 
       var resp = await client.PutAsJsonAsync($"api/v1/{nameof(Order)}s.json?id={updatedOrder.Id}", updatedOrder);
