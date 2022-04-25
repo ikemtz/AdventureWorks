@@ -54,7 +54,7 @@ namespace IkeMtz.AdventureWorks.WebApi.Tests.Unigration
       var client = srv.CreateClient();
       GenerateAuthHeader(client, GenerateTestToken());
 
-      var updatedProduct = JsonConvert.DeserializeObject<Product>(JsonConvert.SerializeObject(originalProduct));
+      var updatedProduct = JsonClone(originalProduct);
       updatedProduct.Name = TestDataFactory.StringGenerator(6);
 
       var resp = await client.PutAsJsonAsync($"api/v1/{nameof(Product)}s.json?id={updatedProduct.Id}", updatedProduct);
