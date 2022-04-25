@@ -19,6 +19,7 @@ namespace IkeMtz.AdventureWorks.OData.Configuration
         _ = builder.EntitySet<ProductModel>($"{nameof(ProductModel)}s");
         _ = builder.EntitySet<Order>($"{nameof(Order)}s");
         _ = builder.EntitySet<OrderLineItem>($"{nameof(OrderLineItem)}s");
+        _ = builder.EntitySet<SalesAgent>($"{nameof(SalesAgent)}s");
       });
 
     public override IDictionary<ApiVersionDescription, IEdmModel> GetModels() =>

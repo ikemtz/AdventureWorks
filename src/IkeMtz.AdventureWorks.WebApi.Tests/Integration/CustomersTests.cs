@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using IkeMtz.AdventureWorks.Data;
 using IkeMtz.AdventureWorks.Models;
 using IkeMtz.AdventureWorks.Tests;
+using IkeMtz.NRSRx.Core;
 using IkeMtz.NRSRx.Core.Unigration;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
@@ -54,7 +55,7 @@ namespace IkeMtz.AdventureWorks.WebApi.Tests.Integration
       var client = srv.CreateClient();
       GenerateAuthHeader(client, GenerateTestToken());
 
-      var updatedCustomer = JsonConvert.DeserializeObject<Customer>(JsonConvert.SerializeObject(originalCustomer));
+      var updatedCustomer = JsonConvert.DeserializeObject<Customer>(JsonConvert.SerializeObject(originalCustomer, Constants.JsonSerializerSettings), Constants.JsonSerializerSettings);
       updatedCustomer.Name = TestDataFactory.StringGenerator(15);
 
       var resp = await client.PutAsJsonAsync($"api/v1/{nameof(Customer)}s.json?id={updatedCustomer.Id}", updatedCustomer);

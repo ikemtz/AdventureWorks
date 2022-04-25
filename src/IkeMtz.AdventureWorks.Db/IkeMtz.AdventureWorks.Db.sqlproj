@@ -94,6 +94,7 @@
     <None Include="dbo\Data\dbo.OrderAddresses.Table.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Build Include="dbo\Tables\SalesAgents.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />
@@ -103,5 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="IkeMtz.AdventureWorks.Db.publish.xml" />
+    <None Include="dbo\Data\dbo.SalesAgents.Table.sql" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,7 @@ namespace IkeMtz.AdventureWorks.Data
     public virtual DbSet<Order> Orders { get; set; }
     public virtual DbSet<OrderAddress> OrderAddresses { get; set; }
     public virtual DbSet<OrderLineItem> OrderLineItems { get; set; }
+    public virtual DbSet<SalesAgent> SalesAgents { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       modelBuilder.Entity<Order>().HasOne(order => order.BillToAddress).WithMany(address => address.BillToOrders);

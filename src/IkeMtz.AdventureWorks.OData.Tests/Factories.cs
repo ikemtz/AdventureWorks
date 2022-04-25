@@ -12,14 +12,22 @@ namespace IkeMtz.AdventureWorks.Tests
     {
       Random = new Random(DateTime.Now.Millisecond);
     }
-    public static Customer CustomerFactory()
+    public static SalesAgent SalesAgentFactory()
+    {
+      return new SalesAgent()
+      {
+        Name = StringGenerator(15, allowSpaces: true),
+        LoginId = $"adventure-works/{StringGenerator(15, allowSpaces: true)}",
+      };
+    }
+    public static Customer CustomerFactory(SalesAgent salesAgent = null)
     {
       var Customer = CreateIdentifiable(CreateAuditable<Customer>());
       Customer.Name = StringGenerator(15, allowSpaces: true);
       Customer.Num = $"10-4000-{StringGenerator(6, characterSet: CharacterSets.Numeric)}";
       Customer.CompanyName = StringGenerator(30, allowSpaces: true);
       Customer.EmailAddress = $"{StringGenerator(5)}@{StringGenerator(10)}.com";
-      Customer.SalesPerson = StringGenerator(35, allowSpaces: true);
+      Customer.SalesAgent = salesAgent ?? SalesAgentFactory();
       return Customer;
     }
 
