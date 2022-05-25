@@ -1,7 +1,7 @@
 ﻿namespace IkeMtz.AdventureWorks.Models
 {
 
-  public enum ShippingTypes
+  public enum ShippingTypes : byte
   {
     Other = 1,
     Air = 2,

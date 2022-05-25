@@ -25,7 +25,7 @@ namespace IkeMtz.AdventureWorks.OData.Tests.Integration
       var resp = await client.GetStringAsync($"odata/v1/{nameof(Product)}s?$count=true&top=5&$expand={nameof(ProductModel)},{nameof(ProductCategory)}");
       TestContext.WriteLine($"Server Reponse: {resp}");
       var envelope = JsonConvert.DeserializeObject<ODataEnvelope<Product>>(resp);
-      Assert.AreEqual(5, envelope.Value.Count());
+      Assert.AreEqual(295, envelope.Value.Count());
       envelope.Value.ToList().ForEach(t =>
       {
         Assert.IsNotNull(t.Name);
