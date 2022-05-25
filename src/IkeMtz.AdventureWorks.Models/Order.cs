@@ -43,8 +43,7 @@ namespace IkeMtz.AdventureWorks.Models
     public Guid? ShipToAddressId { get; set; }
     public Guid? BillToAddressId { get; set; }
     [Required]
-    [MaxLength(50)]
-    public string ShipMethod { get; set; }
+    public ShippingTypes ShippingType { get; set; }
     [MaxLength(15)]
     public string CreditCardApprovalCode { get; set; }
     [Required]

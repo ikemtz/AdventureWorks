@@ -12,7 +12,7 @@
     [CustomerId]             UNIQUEIDENTIFIER   NOT NULL,
     [ShipToAddressId]        UNIQUEIDENTIFIER   NULL,
     [BillToAddressId]        UNIQUEIDENTIFIER   NULL,
-    [ShipMethod]             NVARCHAR (50)      NOT NULL,
+    [ShippingType]           TINYINT            NOT NULL,
     [CreditCardApprovalCode] VARCHAR (15)       NULL,
     [SubTotal]               MONEY              CONSTRAINT [DF_Orders_SubTotal] DEFAULT ((0.00)) NOT NULL,
     [TaxAmt]                 MONEY              CONSTRAINT [DF_Orders_TaxAmt] DEFAULT ((0.00)) NOT NULL,
