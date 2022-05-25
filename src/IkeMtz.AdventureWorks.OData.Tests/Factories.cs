@@ -35,7 +35,7 @@ namespace IkeMtz.AdventureWorks.Tests
     {
       var order = CreateIdentifiable(CreateAuditable<Order>());
       order.Customer = customer ?? CustomerFactory();
-      order.ShipMethod = "CARGO TRANSPORT 5";
+      order.ShippingType = (ShippingTypes)Random.Next(0, 5);
       order.PurchaseOrderNum = StringGenerator(20);
       order.Num = StringGenerator(7, characterSet: CharacterSets.UpperCase + CharacterSets.Numeric);
       order.Status = 1;

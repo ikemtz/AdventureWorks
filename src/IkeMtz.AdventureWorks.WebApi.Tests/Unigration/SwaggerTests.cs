@@ -21,23 +21,5 @@ namespace IkeMtz.AdventureWorks.WebApi.Tests.Unigration
       var html = await SwaggerUnitTests.TestHtmlPageAsync(srv);
       Assert.IsNotNull(html);
     }
-
-    [TestMethod]
-    [TestCategory("Unigration")]
-    public async Task GetSwaggerJsonTest()
-    {
-      var myConfiguration = new Dictionary<string, string>
-      {
-        {SwaggerReverseProxyDocumentFilter.SwaggerReverseProxyBasePath, "/my-api"},
-      };
-      using var srv = new TestServer(TestHostBuilder<Startup, UnigrationWebApiTestStartup>()
-        .ConfigureAppConfiguration((builderContext, configurationBuilder) =>
-          configurationBuilder.AddInMemoryCollection(myConfiguration)
-        ));
-      var doc = await SwaggerUnitTests.TestJsonDocAsync(srv);
-      _ = await SwaggerUnitTests.TestReverseProxyJsonDocAsync(srv, "/my-api");
-      Assert.IsTrue(doc.Components.Schemas.ContainsKey(nameof(Customer)));
-      Assert.AreEqual($"{nameof(AdventureWorks)} WebApi Microservice", doc.Info.Title);
-    }
   }
 }
