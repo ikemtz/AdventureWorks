@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IkeMtz.NRSRx.Core.OData" Version="6.0.137.5" />
+    <PackageReference Include="IkeMtz.NRSRx.Core.OData" Version="6.0.144.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
   </ItemGroup>
