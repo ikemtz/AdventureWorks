@@ -3,12 +3,11 @@ using System.Threading.Tasks;
 using IkeMtz.AdventureWorks.Data;
 using IkeMtz.AdventureWorks.Models;
 using IkeMtz.AdventureWorks.Tests;
-using IkeMtz.NRSRx.Core;
 using IkeMtz.NRSRx.Core.Unigration;
+using IkeMtz.NRSRx.Core.Unigration.Http;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 
 namespace IkeMtz.AdventureWorks.WebApi.Tests.Integration
 {
