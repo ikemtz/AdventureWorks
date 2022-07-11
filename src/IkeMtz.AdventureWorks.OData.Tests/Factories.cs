@@ -38,7 +38,7 @@ namespace IkeMtz.AdventureWorks.Tests
       order.ShippingType = (ShippingTypes)Random.Next(0, 5);
       order.PurchaseOrderNum = StringGenerator(20);
       order.Num = StringGenerator(7, characterSet: CharacterSets.UpperCase + CharacterSets.Numeric);
-      order.Status = 1;
+      order.Status = OrderStatusTypes.Processing;
       return order;
     }
 
