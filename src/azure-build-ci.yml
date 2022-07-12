@@ -239,7 +239,8 @@ jobs:
 
   - task: Docker@2
     inputs:
-      containerRegistry: 'Azure Container Registry (AdventureWorks)'
+      containerRegistry: 'IkeMtz Docker Hub'
+      repository: 'ikemtz/adventureworks-integration-tests'
       command: 'build'
       Dockerfile: '**/integration-tests-ci.Dockerfile'
 
