@@ -30,7 +30,7 @@ namespace IkeMtz.AdventureWorks.Models
     public DateTime DueDate { get; set; }
     public DateTime? ShipDate { get; set; }
     [Required]
-    public OrderStatusTypes Status { get; set; }
+    public OrderStatusTypes StatusType { get; set; }
     [Required]
     public bool IsOnlineOrder { get; set; }
     [Required]
